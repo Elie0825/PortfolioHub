@@ -1,0 +1,27 @@
+const { verifyToken } = require('../config/jwt')
+const userRepository = require('../repositories/userRepository')
+
+const requireAuth = async (req, res, next) => {
+  try {
+    const authHeader = req.headers.authorization
+
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return res.status(401).json({ message: 'Authentication required' })
+    }
+
+    const token = authHeader.split(' ')[1]
+    const decoded = verifyToken(token)
+
+    const user = await userRepository.findUserById(decoded.userId)
+    if (!user) {
+      return res.status(401).json({ message: 'User no longer exists' })
+    }
+
+    req.user = user
+    next()
+  } catch (error) {
+    return res.status(401).json({ message: 'Invalid or expired token' })
+  }
+}
+
+module.exports = { requireAuth }

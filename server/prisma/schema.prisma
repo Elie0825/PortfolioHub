@@ -1,0 +1,108 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  portfolio Portfolio?
+
+  @@map("users")
+}
+
+model Portfolio {
+  id          String   @id @default(uuid())
+  userId      String   @unique @map("user_id")
+  theme       String   @default("dark-terminal")
+  isPublished Boolean  @default(false) @map("is_published")
+  viewCount   Int      @default(0) @map("view_count")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  profileSection  ProfileSection?
+  projects        Project[]
+  experiences     Experience[]
+  skills          Skill[]
+  contactLinks    ContactLink[]
+
+  @@map("portfolios")
+}
+
+model ProfileSection {
+  id              String  @id @default(uuid())
+  portfolioId     String  @unique @map("portfolio_id")
+  headline        String  @default("")
+  bio             String  @default("")
+  location        String  @default("")
+  availability    String  @default("")
+  profilePhotoUrl String  @default("") @map("profile_photo_url")
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@map("profile_sections")
+}
+
+model Project {
+  id          String   @id @default(uuid())
+  portfolioId String   @map("portfolio_id")
+  title       String
+  description String   @default("")
+  liveUrl     String   @default("") @map("live_url")
+  githubUrl   String   @default("") @map("github_url")
+  thumbUrl    String   @default("") @map("thumb_url")
+  techTags    String[] @map("tech_tags")
+  sortOrder   Int      @default(0) @map("sort_order")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@map("projects")
+}
+
+model Experience {
+  id          String  @id @default(uuid())
+  portfolioId String  @map("portfolio_id")
+  role        String
+  company     String
+  startDate   String  @map("start_date")
+  endDate     String  @default("present") @map("end_date")
+  description String  @default("")
+  sortOrder   Int     @default(0) @map("sort_order")
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@map("experiences")
+}
+
+model Skill {
+  id          String  @id @default(uuid())
+  portfolioId String  @map("portfolio_id")
+  name        String
+  isFeatured  Boolean @default(false) @map("is_featured")
+  sortOrder   Int     @default(0) @map("sort_order")
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@map("skills")
+}
+
+model ContactLink {
+  id          String @id @default(uuid())
+  portfolioId String @map("portfolio_id")
+  platform    String
+  url         String
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@map("contact_links")
+}

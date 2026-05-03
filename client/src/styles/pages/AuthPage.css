@@ -1,0 +1,27 @@
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background-color: var(--color-bg-page);
+}
+
+.auth-page__card {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-card);
+}
+
+.auth-page__brand {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-brand);
+  text-align: center;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+}
