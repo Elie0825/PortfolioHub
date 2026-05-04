@@ -1,0 +1,17 @@
+.project-form {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.project-form__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}

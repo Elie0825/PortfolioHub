@@ -21,19 +21,23 @@ model User {
 }
 
 model Portfolio {
-  id          String   @id @default(uuid())
-  userId      String   @unique @map("user_id")
-  theme       String   @default("dark-terminal")
-  isPublished Boolean  @default(false) @map("is_published")
-  viewCount   Int      @default(0) @map("view_count")
-  updatedAt   DateTime @updatedAt @map("updated_at")
+  id           String   @id @default(uuid())
+  userId       String   @unique @map("user_id")
+  theme        String   @default("dark-terminal")
+  isPublished  Boolean  @default(false) @map("is_published")
+  viewCount    Int      @default(0) @map("view_count")
+  styleConfig  Json     @default("{}") @map("style_config")
+  sectionOrder Json     @default("[]") @map("section_order")
+  updatedAt    DateTime @updatedAt @map("updated_at")
 
-  user            User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
   profileSection  ProfileSection?
   projects        Project[]
   experiences     Experience[]
   skills          Skill[]
   contactLinks    ContactLink[]
+  views           PortfolioView[]
+  contactMessages ContactMessage[]
 
   @@map("portfolios")
 }
@@ -64,7 +68,8 @@ model Project {
   sortOrder   Int      @default(0) @map("sort_order")
   createdAt   DateTime @default(now()) @map("created_at")
 
-  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  portfolio Portfolio      @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+  clicks    ProjectClick[]
 
   @@map("projects")
 }
@@ -105,4 +110,41 @@ model ContactLink {
   portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
 
   @@map("contact_links")
+}
+
+model PortfolioView {
+  id          String   @id @default(uuid())
+  portfolioId String   @map("portfolio_id")
+  visitedAt   DateTime @default(now()) @map("visited_at")
+  referrer    String   @default("")
+  country     String   @default("")
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@map("portfolio_views")
+}
+
+model ProjectClick {
+  id        String   @id @default(uuid())
+  projectId String   @map("project_id")
+  clickedAt DateTime @default(now()) @map("clicked_at")
+  linkType  String   @map("link_type")
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+
+  @@map("project_clicks")
+}
+
+model ContactMessage {
+  id          String   @id @default(uuid())
+  portfolioId String   @map("portfolio_id")
+  senderName  String   @map("sender_name")
+  senderEmail String   @map("sender_email")
+  message     String
+  isRead      Boolean  @default(false) @map("is_read")
+  sentAt      DateTime @default(now()) @map("sent_at")
+
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+
+  @@map("contact_messages")
 }

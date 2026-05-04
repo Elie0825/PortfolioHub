@@ -1,0 +1,214 @@
+/* ── ColorPicker ── */
+.sc-color-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.sc-color-picker__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.sc-color-picker__row {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.sc-color-picker__input {
+  width: 36px;
+  height: 36px;
+  padding: 2px;
+  border: 1px solid var(--color-border-input);
+  border-radius: var(--radius-sm);
+  background: none;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sc-color-picker__input::-webkit-color-swatch-wrapper {
+  padding: 0;
+  border-radius: 4px;
+}
+
+.sc-color-picker__input::-webkit-color-swatch {
+  border: none;
+  border-radius: 4px;
+}
+
+.sc-color-picker__hex {
+  font-size: 0.8rem;
+  font-family: monospace;
+  color: var(--color-text-secondary);
+  flex: 1;
+}
+
+.sc-color-picker__reset {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--color-text-secondary);
+  line-height: 1;
+  padding: 0 0.25rem;
+  transition: color var(--transition-fast);
+}
+
+.sc-color-picker__reset:hover {
+  color: var(--color-text-primary);
+}
+
+/* ── FontSelector ── */
+.sc-font-selector {
+  /* inherits .form-group styles from global.css */
+}
+
+/* ── BorderRadiusSlider ── */
+.sc-radius-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sc-radius-slider__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sc-radius-slider__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.sc-radius-slider__value {
+  font-size: 0.8rem;
+  font-family: monospace;
+  color: var(--color-text-secondary);
+}
+
+.sc-radius-slider__input {
+  width: 100%;
+  accent-color: var(--color-brand);
+  cursor: pointer;
+}
+
+.sc-radius-slider__ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7rem;
+  color: var(--color-text-secondary);
+}
+
+/* ── Option group (CardStyleSelector / LayoutSelector) ── */
+.sc-option-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sc-option-group__label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.sc-option-group__options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.sc-option-group__btn {
+  flex: 1;
+  padding: 0.4rem 0.75rem;
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  transition: border-color var(--transition-fast), color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.sc-option-group__btn:hover {
+  border-color: var(--color-text-secondary);
+  color: var(--color-text-primary);
+}
+
+.sc-option-group__btn--active {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+  background-color: var(--color-bg-card);
+  font-weight: 500;
+}
+
+/* ── SectionManager ── */
+.sc-section-manager__hint {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.sc-section-manager__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.sc-section-manager__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  cursor: grab;
+  user-select: none;
+  transition: border-color var(--transition-fast), opacity var(--transition-fast);
+}
+
+.sc-section-manager__item:active {
+  cursor: grabbing;
+}
+
+.sc-section-manager__item--dragging {
+  border-color: var(--color-brand);
+  opacity: 0.8;
+}
+
+.sc-section-manager__item--hidden {
+  opacity: 0.45;
+}
+
+.sc-section-manager__handle {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.sc-section-manager__name {
+  flex: 1;
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+}
+
+.sc-section-manager__toggle {
+  background: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.sc-section-manager__toggle--on {
+  border-color: var(--color-success);
+  color: var(--color-success);
+}

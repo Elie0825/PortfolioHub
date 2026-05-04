@@ -1,0 +1,55 @@
+.referrer-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-top: 0.75rem;
+}
+
+.referrer-list__item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.referrer-list__rank {
+  width: 1.25rem;
+  text-align: right;
+  color: var(--color-text-secondary);
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.referrer-list__domain {
+  width: 140px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--color-text-primary);
+}
+
+.referrer-list__bar-wrap {
+  flex: 1;
+  height: 8px;
+  background-color: var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.referrer-list__bar {
+  height: 100%;
+  background-color: var(--color-brand);
+  border-radius: 4px;
+  min-width: 4px;
+  transition: width 0.3s ease;
+}
+
+.referrer-list__count {
+  width: 2.5rem;
+  text-align: right;
+  color: var(--color-text-secondary);
+  font-size: 0.8rem;
+  flex-shrink: 0;
+}

@@ -1,0 +1,18 @@
+.theme-soft-blue {
+  --color-brand: #2563eb;
+  --color-brand-hover: #1d4ed8;
+
+  --color-bg-page: #eff6ff;
+  --color-bg-card: #ffffff;
+  --color-bg-input: #ffffff;
+
+  --color-text-primary: #1e3a5f;
+  --color-text-secondary: #3b6a9e;
+  --color-text-placeholder: #93c5fd;
+
+  --color-border: #bfdbfe;
+  --color-border-input: #93c5fd;
+  --color-border-input-focus: #2563eb;
+
+  --color-success: #16a34a;
+}

@@ -1,0 +1,21 @@
+.theme-forest-green {
+  --color-brand: #4ade80;
+  --color-brand-hover: #86efac;
+
+  --color-bg-page: #0f1f0f;
+  --color-bg-card: #162016;
+  --color-bg-input: #1e2e1e;
+  --color-bg-error: #3d1c1c;
+
+  --color-text-primary: #dcfce7;
+  --color-text-secondary: #86efac;
+  --color-text-placeholder: #4ade80;
+
+  --color-border: #1e3a1e;
+  --color-border-input: #2d4a2d;
+  --color-border-input-focus: #4ade80;
+  --color-border-error: #f87171;
+
+  --color-error: #f87171;
+  --color-success: #4ade80;
+}

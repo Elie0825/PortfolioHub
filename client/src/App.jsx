@@ -4,6 +4,7 @@ import ProtectedRoute from './components/layout/ProtectedRoute'
 import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 import DashboardPage from './pages/DashboardPage'
+import PublicPortfolioPage from './pages/PublicPortfolioPage'
 import './styles/global.css'
 
 const App = () => {
@@ -22,6 +23,23 @@ const App = () => {
               </ProtectedRoute>
             }
           />
+          <Route
+            path="/dashboard/analytics"
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/dashboard/messages"
+            element={
+              <ProtectedRoute>
+                <DashboardPage />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/u/:username" element={<PublicPortfolioPage />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

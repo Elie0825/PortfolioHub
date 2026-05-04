@@ -1,0 +1,16 @@
+.theme-clean-minimal {
+  --color-brand: #18181b;
+  --color-brand-hover: #3f3f46;
+
+  --color-bg-page: #ffffff;
+  --color-bg-card: #fafafa;
+  --color-bg-input: #ffffff;
+
+  --color-text-primary: #09090b;
+  --color-text-secondary: #71717a;
+  --color-text-placeholder: #a1a1aa;
+
+  --color-border: #e4e4e7;
+  --color-border-input: #d4d4d8;
+  --color-border-input-focus: #18181b;
+}

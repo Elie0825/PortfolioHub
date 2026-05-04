@@ -15,6 +15,14 @@ const findUserById = async (id) => {
   })
 }
 
+const DEFAULT_SECTION_ORDER = [
+  { id: 'hero', visible: true },
+  { id: 'skills', visible: true },
+  { id: 'projects', visible: true },
+  { id: 'experience', visible: true },
+  { id: 'contact', visible: true },
+]
+
 const createUserWithPortfolio = async ({ email, username, hashedPassword }) => {
   return prisma.user.create({
     data: {
@@ -23,6 +31,7 @@ const createUserWithPortfolio = async ({ email, username, hashedPassword }) => {
       password: hashedPassword,
       portfolio: {
         create: {
+          sectionOrder: DEFAULT_SECTION_ORDER,
           profileSection: {
             create: {},
           },

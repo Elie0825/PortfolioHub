@@ -1,0 +1,21 @@
+.theme-dark-terminal {
+  --color-brand: #58a6ff;
+  --color-brand-hover: #79b8ff;
+
+  --color-bg-page: #0d1117;
+  --color-bg-card: #161b22;
+  --color-bg-input: #21262d;
+  --color-bg-error: #3d1c1c;
+
+  --color-text-primary: #e6edf3;
+  --color-text-secondary: #8b949e;
+  --color-text-placeholder: #6e7681;
+
+  --color-border: #30363d;
+  --color-border-input: #30363d;
+  --color-border-input-focus: #58a6ff;
+  --color-border-error: #f85149;
+
+  --color-error: #f85149;
+  --color-success: #3fb950;
+}

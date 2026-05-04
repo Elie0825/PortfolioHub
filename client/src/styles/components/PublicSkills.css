@@ -1,0 +1,36 @@
+.public-skills {
+  margin-bottom: 4rem;
+}
+
+.public-skills__featured {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  margin-bottom: 0.875rem;
+}
+
+.public-skills__featured-tag {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-brand);
+  color: #fff;
+}
+
+.public-skills__rest {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.public-skills__tag {
+  font-size: 0.825rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+}
