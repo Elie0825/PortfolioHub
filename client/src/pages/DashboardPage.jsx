@@ -98,6 +98,14 @@ const EditorShell = () => {
             {isExporting ? 'Exporting…' : 'Export PDF'}
           </button>
           <PublishToggle />
+          <a
+            className="dashboard-page__view-link"
+            href={`/u/${user?.username}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            View portfolio ↗
+          </a>
           <span className="dashboard-page__username">@{user?.username}</span>
           <button className="dashboard-page__logout" onClick={handleLogout}>
             Log out
